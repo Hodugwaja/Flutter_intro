@@ -1,6 +1,6 @@
-# flutter_tutroial
+# widget_sample
 
-A new Flutter application.
+A new Flutter project.
 
 ## Getting Started
 
@@ -14,9 +14,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
-
-
-## 강의
-
-https://www.youtube.com/playlist?list=PLgRxBCVPaZ_1j9Z66HEu71ST3GqssBdma
