@@ -1,4 +1,4 @@
-class Rabit{
+class Rabbit{
   String _name;
   RabbitState _state;
   Rabbit({String name, RabbitState state}){
