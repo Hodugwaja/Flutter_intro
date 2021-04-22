@@ -12,19 +12,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FlutterDemo',
-      theme : ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       /*
-      home : stateless_sample(
+      home : StatelessSample(
         title : "구멍이 없는 박스로 실행하는 자",
         rabbit : Rabbit(name : '호두토끼1', state : RabbitState.SLEEP)
       ),*/
-      home : stateful_sample(
-          title : "구멍이 있는 박스로 실행하는 자",
-          rabbit : Rabbit(name : '호두토끼2', state : RabbitState.SLEEP)
-      ),
+      home: StatefulSample(
+          title: "구멍이 있는 박스로 실행하는 자",
+          rabbit: Rabbit(name: '호두토끼2', state: RabbitState.SLEEP)),
     );
   }
 }
