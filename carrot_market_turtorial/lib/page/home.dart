@@ -19,70 +19,70 @@ class _HomeState extends State<Home> {
       {
         "image": 'assets/images/ara1.jpg',
         "title": '제목',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
-        'likes': '1972'
+        'likes': '1121'
       },
       {
         "image": 'assets/images/ara-2.jpg',
         "title": '제목',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-3.jpg',
         "title": '제목',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-4.jpg',
         "title": '미안하다 이거 보여주려고 어그로 끌었다. 솔직히 저런 거 정말로 멋지지 않나? 가슴이 장웅해진다',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-5.jpg',
-        "title": '키뮤가 아니라 미뮤라고요',
-        "location": "위치",
-        "price": '4딸라',
+        "title": '상하이 나들목 단돈 4백만 딸라! 놓치지 마세요',
+        "location": "대전광역시 유성구 장동 23-9",
+        "price": '4백만 딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-6.jpg',
         "title": '카나미 천재',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-7.jpg',
         "title": '나공익 볼짤',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-8.jpg',
-        "title": '규카츠 먹고 싶다',
-        "location": "위치",
+        "title": '규카츠 먹으려고 산건데 규카츠를 사자마자 다 먹어서 팝니다 ㅜㅜ',
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-9.jpg',
         "title": '우주원은 귀엽다',
-        "location": "위치",
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
         "image": 'assets/images/ara-10.jpg',
-        "title": '맛젤이는 세젤귀 비상식량',
-        "location": "위치",
+        "title": '세젤귀 비상식량 맛젤',
+        "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
         },
         child: Row(
           children: [
-            Text("아라동"),
+            Text("유성구"),
             Icon(Icons.arrow_drop_down),
           ],
         ),
@@ -138,6 +138,7 @@ class _HomeState extends State<Home> {
                   Data[index]["image"],
                   width: 100,
                   height: 100,
+                  fit: BoxFit.cover,
                 ),
               ),
               Expanded(
@@ -148,15 +149,35 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          Data[index]["title"],
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontFamily: 'NotoSansCJKkr',
-                            fontSize: 15,
-                          )
+                        Data[index]["title"],
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontFamily: 'NotoSansCJKkr',
+                          fontSize: 15,
+                          fontWeight : FontWeight.w500,
+                        ),
                       ),
-                      Text(Data[index]["location"]),
-                      Text(Data[index]["price"]),
+                      SizedBox(height : 5),
+                      Text(
+                        Data[index]["location"],
+                        style: TextStyle(
+                          fontFamily: 'NotoSansCJKkr',
+                          fontSize: 12,
+                          color : Colors.black.withOpacity(0.3),
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height : 5),
+                      Text(
+                        Data[index]["price"],
+                        style: TextStyle(
+                          fontFamily: 'NotoSansCJKkr',
+                          fontSize: 15,
+                          fontWeight : FontWeight.w700,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height : 5),
                       Expanded(
                         child: Container(
                           child: Row(
