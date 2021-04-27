@@ -26,3 +26,14 @@ flutter:
     - assets/svg/
     - assets/images/
 
+  fonts:
+    - family: NotoSansCJKkr
+      fonts:
+        - asset: assets/fonts/NotoSansCJKkr-Black.otf
+        - asset: assets/fonts/NotoSansCJKkr-Bold.otf
+        - asset: assets/fonts/NotoSansCJKkr-Medium.otf
+        - asset: assets/fonts/NotoSansCJKkr-Regular.otf
+        - asset: assets/fonts/NotoSansCJKkr-DemiLight.otf
+        - asset: assets/fonts/NotoSansCJKkr-Light.otf
+        - asset: assets/fonts/NotoSansCJKkr-Thin.otf
+

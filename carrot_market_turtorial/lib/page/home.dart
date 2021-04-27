@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
       },
       {
         "image": 'assets/images/ara-4.jpg',
-        "title": '제목',
+        "title": '미안하다 이거 보여주려고 어그로 끌었다. 솔직히 저런 거 정말로 멋지지 않나? 가슴이 장웅해진다',
         "location": "위치",
         "price": '4딸라',
         'likes': '1972'
@@ -127,6 +128,8 @@ class _HomeState extends State<Home> {
       itemCount: Data.length,
       itemBuilder: (BuildContext _context, int index) {
         return Container(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             children: [
               ClipRRect(
@@ -137,27 +140,42 @@ class _HomeState extends State<Home> {
                   height: 100,
                 ),
               ),
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(Data[index]["title"]),
-                    Text(Data[index]["location"]),
-                    Text(Data[index]["price"]),
-                    Row(
-                      mainAxisAlignment : MainAxisAlignment.end,
-                      crossAxisAlignment : CrossAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svg/heart_off.svg',
-                          width: 13,
-                          height: 13,
+              Expanded(
+                child: Container(
+                  height: 100,
+                  padding: EdgeInsets.only(left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                          Data[index]["title"],
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontFamily: 'NotoSansCJKkr',
+                            fontSize: 15,
+                          )
+                      ),
+                      Text(Data[index]["location"]),
+                      Text(Data[index]["price"]),
+                      Expanded(
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/heart_off.svg',
+                                width: 13,
+                                height: 13,
+                              ),
+                              SizedBox(width: 5),
+                              Text(Data[index]["likes"]),
+                            ],
+                          ),
                         ),
-                        SizedBox(width: 5),
-                        Text(Data[index]["likes"]),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
