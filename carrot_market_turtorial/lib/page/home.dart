@@ -12,9 +12,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   // ignore: non_constant_identifier_names
   List<Map<String, String>> Data = [];
+  int _currentPageIndex;
+  var name = "호두과자";
 
   void initState() {
     super.initState();
+    _currentPageIndex = 0;
     Data = [
       {
         "image": 'assets/images/ara1.jpg',
@@ -154,30 +157,30 @@ class _HomeState extends State<Home> {
                         style: TextStyle(
                           fontFamily: 'NotoSansCJKkr',
                           fontSize: 15,
-                          fontWeight : FontWeight.w500,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height : 5),
+                      SizedBox(height: 5),
                       Text(
                         Data[index]["location"],
                         style: TextStyle(
                           fontFamily: 'NotoSansCJKkr',
                           fontSize: 12,
-                          color : Colors.black.withOpacity(0.3),
+                          color: Colors.black.withOpacity(0.3),
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height : 5),
+                      SizedBox(height: 5),
                       Text(
                         Data[index]["price"],
                         style: TextStyle(
                           fontFamily: 'NotoSansCJKkr',
                           fontSize: 15,
-                          fontWeight : FontWeight.w700,
+                          fontWeight: FontWeight.w700,
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height : 5),
+                      SizedBox(height: 5),
                       Expanded(
                         child: Container(
                           child: Row(
@@ -209,10 +212,44 @@ class _HomeState extends State<Home> {
     );
   }
 
+  BottomNavigationBarItem _bottomNavigationBarItem(String iconName, String label) {
+    return BottomNavigationBarItem(
+      icon: SvgPicture.asset(
+        'assets/svg/$iconName.svg',
+        width: 22,
+      ),
+      label: label,
+    );
+  }
+
+  Widget _bottomNavigationBarWidget() {
+    return BottomNavigationBar(
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.black,
+      showUnselectedLabels: true,
+      showSelectedLabels: true,
+      type : BottomNavigationBarType.fixed,
+      onTap: (int index){
+        setState(() {
+          _currentPageIndex = index;
+        });
+      },
+      currentIndex: _currentPageIndex,
+      items: [
+        _bottomNavigationBarItem('home_off', '홈'),
+        _bottomNavigationBarItem('notes_off', '동네생활'),
+        _bottomNavigationBarItem('location_off', '내 근처'),
+        _bottomNavigationBarItem('chat_off', '채팅'),
+        _bottomNavigationBarItem('user_off', name),
+      ],
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbarWidget(),
       body: _bodyWidget(),
+      bottomNavigationBar: _bottomNavigationBarWidget(),
     );
   }
 }
