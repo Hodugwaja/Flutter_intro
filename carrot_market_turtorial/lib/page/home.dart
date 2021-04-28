@@ -1,89 +1,84 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 
 class Home extends StatefulWidget {
-  Home({Key key}) : super(key: key);
-
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  // ignore: non_constant_identifier_names
   List<Map<String, String>> Data = [];
-  int _currentPageIndex;
-  var name = "호두과자";
 
+  @override
   void initState() {
     super.initState();
-    _currentPageIndex = 0;
     Data = [
       {
-        "image": 'assets/images/ara1.jpg',
+        "image": 'assets/images/youseong-1.jpg',
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1121'
       },
       {
-        "image": 'assets/images/ara-2.jpg',
+        "image": 'assets/images/youseong-2.jpg',
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-3.jpg',
+        "image": 'assets/images/youseong-3.jpg',
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-4.jpg',
+        "image": 'assets/images/youseong-4.jpg',
         "title": '미안하다 이거 보여주려고 어그로 끌었다. 솔직히 저런 거 정말로 멋지지 않나? 가슴이 장웅해진다',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-5.jpg',
+        "image": 'assets/images/youseong-5.jpg',
         "title": '상하이 나들목 단돈 4백만 딸라! 놓치지 마세요',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4백만 딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-6.jpg',
+        "image": 'assets/images/youseong-6.jpg',
         "title": '카나미 천재',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-7.jpg',
+        "image": 'assets/images/youseong-7.jpg',
         "title": '나공익 볼짤',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-8.jpg',
+        "image": 'assets/images/youseong-8.jpg',
         "title": '규카츠 먹으려고 산건데 규카츠를 사자마자 다 먹어서 팝니다 ㅜㅜ',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-9.jpg',
+        "image": 'assets/images/youseong-9.jpg',
         "title": '우주원은 귀엽다',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
         'likes': '1972'
       },
       {
-        "image": 'assets/images/ara-10.jpg',
+        "image": 'assets/images/youseong-10.jpg',
         "title": '세젤귀 비상식량 맛젤',
         "location": "대전광역시 유성구 장동 23-9",
         "price": '4딸라',
@@ -92,20 +87,38 @@ class _HomeState extends State<Home> {
     ];
   }
 
+  final oCcy = new NumberFormat('#,###', "ko_kr");
+
+  String calcStringToWon(String priceString) {
+    return "${oCcy.format(int.parse(priceString))}원";
+  }
+
   Widget _appbarWidget() {
     return AppBar(
       title: GestureDetector(
         onTap: () {
           print("click");
         },
-        onLongPress: () {
-          print("Long pressed");
-        },
-        child: Row(
-          children: [
-            Text("유성구"),
-            Icon(Icons.arrow_drop_down),
-          ],
+        child: PopupMenuButton<String>(
+          offset : Offset(0, 25),
+          shape: ShapeBorder.lerp(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            1,
+          ),
+          itemBuilder: (BuildContext context) {
+            return [
+              PopupMenuItem(value: 'youseong', child: Text("대전광역시 유성구")),
+              PopupMenuItem(value: 'danwon', child: Text("안산시 단원구")),
+              PopupMenuItem(value: 'seocho', child: Text("서울특별시 서초구")),
+            ];
+          },
+          child: Row(
+            children: [
+              Text("대전광역시 유성구"),
+              Icon(Icons.arrow_drop_down),
+            ],
+          ),
         ),
       ),
       elevation: 1,
@@ -212,44 +225,15 @@ class _HomeState extends State<Home> {
     );
   }
 
-  BottomNavigationBarItem _bottomNavigationBarItem(String iconName, String label) {
-    return BottomNavigationBarItem(
-      icon: SvgPicture.asset(
-        'assets/svg/$iconName.svg',
-        width: 22,
-      ),
-      label: label,
-    );
-  }
-
-  Widget _bottomNavigationBarWidget() {
-    return BottomNavigationBar(
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.black,
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
-      type : BottomNavigationBarType.fixed,
-      onTap: (int index){
-        setState(() {
-          _currentPageIndex = index;
-        });
-      },
-      currentIndex: _currentPageIndex,
-      items: [
-        _bottomNavigationBarItem('home_off', '홈'),
-        _bottomNavigationBarItem('notes_off', '동네생활'),
-        _bottomNavigationBarItem('location_off', '내 근처'),
-        _bottomNavigationBarItem('chat_off', '채팅'),
-        _bottomNavigationBarItem('user_off', name),
-      ],
-    );
-  }
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbarWidget(),
       body: _bodyWidget(),
-      bottomNavigationBar: _bottomNavigationBarWidget(),
     );
   }
 }
+
+/*
+
+ */
