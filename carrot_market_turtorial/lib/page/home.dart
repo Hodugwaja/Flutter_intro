@@ -94,8 +94,16 @@ class _HomeState extends State<Home> {
   Widget _bodyWidget() {
     return FutureBuilder(
       future: _loadContents(),
-      builder: (BuildContext context, dynamic snapshot) {
-       List<Map<String, String>> Data = snapshot.Data;
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(
+              semanticsLabel: '로딩중입니다',
+            ),
+          );
+        }
+
+        List<Map<String, String>> Data = snapshot.data;
         return ListView.separated(
           itemCount: Data.length,
           itemBuilder: (BuildContext _context, int index) {
@@ -181,7 +189,6 @@ class _HomeState extends State<Home> {
         );
       },
     );
-
   }
 
   @override
