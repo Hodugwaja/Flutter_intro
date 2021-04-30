@@ -108,79 +108,84 @@ class _HomeState extends State<Home> {
         return ListView.separated(
           itemCount: Data.length,
           itemBuilder: (BuildContext _context, int index) {
-            return Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    child: Image.asset(
-                      Data[index]["image"],
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 100,
-                      padding: EdgeInsets.only(left: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            Data[index]["title"],
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontFamily: 'NotoSansCJKkr',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            Data[index]["location"],
-                            style: TextStyle(
-                              fontFamily: 'NotoSansCJKkr',
-                              fontSize: 12,
-                              color: Colors.black.withOpacity(0.3),
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            Data[index]["price"],
-                            style: TextStyle(
-                              fontFamily: 'NotoSansCJKkr',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          SizedBox(height: 5),
-                          Expanded(
-                            child: Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/svg/heart_off.svg',
-                                    width: 13,
-                                    height: 13,
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text(Data[index]["likes"]),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+            return GestureDetector(
+              onTap :(){
+                print(Data[index]['title']);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      child: Image.asset(
+                        Data[index]["image"],
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        padding: EdgeInsets.only(left: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              Data[index]["title"],
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontFamily: 'NotoSansCJKkr',
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              Data[index]["location"],
+                              style: TextStyle(
+                                fontFamily: 'NotoSansCJKkr',
+                                fontSize: 12,
+                                color: Colors.black.withOpacity(0.3),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              Data[index]["price"],
+                              style: TextStyle(
+                                fontFamily: 'NotoSansCJKkr',
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            SizedBox(height: 5),
+                            Expanded(
+                              child: Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/svg/heart_off.svg',
+                                      width: 13,
+                                      height: 13,
+                                    ),
+                                    SizedBox(width: 5),
+                                    Text(Data[index]["likes"]),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           },
