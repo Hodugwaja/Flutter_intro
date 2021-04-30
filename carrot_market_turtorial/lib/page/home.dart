@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
   final oCcy = new NumberFormat('#,###', "ko_kr");
 
   String calcStringToWon(String priceString) {
+    if(priceString == "무료 나눔") return priceString;
     return "${oCcy.format(int.parse(priceString))}원";
   }
 
