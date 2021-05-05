@@ -10,21 +10,58 @@ class DetailContentView extends StatefulWidget {
 }
 
 class _DetailContentViewState extends State<DetailContentView> {
+  Size size;
 
-  Widget _appbarWidget(){
-    return Container();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    size = MediaQuery.of(context).size;
   }
 
-  Widget _bodyWidget(){
-    return Container();
+  Widget _appbarWidget() {
+    return AppBar(
+      backgroundColor: Color.fromRGBO(22, 22, 22, 0.5),
+      elevation: 0,
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.share),
+          color: Colors.white,
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.more_vert),
+          color: Colors.white,
+        ),
+      ],
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Widget _bodyWidget() {
+    return Container(
+      child: Hero(
+        tag: widget.data["cid"],
+        child: Image.asset(
+          widget.data["image"],
+          width: size.width,
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(widget.data["title"]),
-      ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: _appbarWidget(),
+      body: _bodyWidget(),
     );
   }
 }

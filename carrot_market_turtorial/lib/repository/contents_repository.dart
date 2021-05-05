@@ -3,6 +3,7 @@ class ContentsRepository {
   Map<String, dynamic> Data = {
     "youseong": [
       {
+        "cid" : "1",
         "image": 'assets/images/youseong-1.jpg',
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
@@ -10,6 +11,7 @@ class ContentsRepository {
         'likes': '1121'
       },
       {
+        "cid" : "2",
         "image": 'assets/images/youseong-2.jpg',
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
@@ -17,6 +19,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "3",
         "image": 'assets/images/youseong-3.jpg',
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
@@ -24,6 +27,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "4",
         "image": 'assets/images/youseong-4.jpg',
         "title": '미안하다 이거 보여주려고 어그로 끌었다. 솔직히 저런 거 정말로 멋지지 않나? 가슴이 장웅해진다',
         "location": "대전광역시 유성구 장동 23-9",
@@ -31,6 +35,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "5",
         "image": 'assets/images/youseong-5.jpg',
         "title": '상하이 나들목 단돈 4백만 딸라! 놓치지 마세요',
         "location": "대전광역시 유성구 장동 23-9",
@@ -38,6 +43,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "6",
         "image": 'assets/images/youseong-6.jpg',
         "title": '카나미 천재',
         "location": "대전광역시 유성구 장동 23-9",
@@ -45,6 +51,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "7",
         "image": 'assets/images/youseong-7.jpg',
         "title": '나공익 볼짤',
         "location": "대전광역시 유성구 장동 23-9",
@@ -52,6 +59,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "8",
         "image": 'assets/images/youseong-8.jpg',
         "title": '규카츠 먹으려고 산건데 규카츠를 사자마자 다 먹어서 팝니다 ㅜㅜ',
         "location": "대전광역시 유성구 장동 23-9",
@@ -59,6 +67,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "9",
         "image": 'assets/images/youseong-9.jpg',
         "title": '우주원은 귀엽다',
         "location": "대전광역시 유성구 장동 23-9",
@@ -66,6 +75,7 @@ class ContentsRepository {
         'likes': '1972'
       },
       {
+        "cid" : "10",
         "image": 'assets/images/youseong-10.jpg',
         "title": '세젤귀 비상식량 맛젤',
         "location": "대전광역시 유성구 장동 23-9",
@@ -75,6 +85,7 @@ class ContentsRepository {
     ],
     "danwon": [
       {
+        "cid" : "11",
         "image": "assets/images/danwon-1.jpg",
         "title": "LG 통돌이세탁기 15kg(내부)",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -82,6 +93,7 @@ class ContentsRepository {
         "likes": "13"
       },
       {
+        "cid" : "12",
         "image": "assets/images/danwon-2.jpg",
         "title": "3단책장 전면책장 가져가실분",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -89,6 +101,7 @@ class ContentsRepository {
         "likes": "6"
       },
       {
+        "cid" : "13",
         "image": "assets/images/danwon-3.jpg",
         "title": "브리츠 컴퓨터용 스피커",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -96,6 +109,7 @@ class ContentsRepository {
         "likes": "4"
       },
       {
+        "cid" : "14",
         "image": "assets/images/danwon-4.jpg",
         "title": "안락 의자",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -103,6 +117,7 @@ class ContentsRepository {
         "likes": "1"
       },
       {
+        "cid" : "15",
         "image": "assets/images/danwon-5.jpg",
         "title": "어린이책 무료드림",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -110,6 +125,7 @@ class ContentsRepository {
         "likes": "1"
       },
       {
+        "cid" : "16",
         "image": "assets/images/danwon-6.jpg",
         "title": "어린이책 무료드림",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -117,6 +133,7 @@ class ContentsRepository {
         "likes": "0"
       },
       {
+        "cid" : "17",
         "image": "assets/images/danwon-7.jpg",
         "title": "칼세트 재제품 팝니다",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -124,6 +141,7 @@ class ContentsRepository {
         "likes": "5"
       },
       {
+        "cid" : "18",
         "image": "assets/images/danwon-8.jpg",
         "title": "아이팜장난감정리함팔아요",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -131,6 +149,7 @@ class ContentsRepository {
         "likes": "29"
       },
       {
+        "cid" : "19",
         "image": "assets/images/danwon-9.jpg",
         "title": "한색책상책장수납장세트 팝니다.",
         "location": "안산시 단원구 초지동 화랑로 250",
@@ -138,6 +157,7 @@ class ContentsRepository {
         "likes": "1"
       },
       {
+        "cid" : "20",
         "image": "assets/images/danwon-10.jpg",
         "title": "순성 데일리 오가닉 카시트",
         "location": "안산시 단원구 초지동 화랑로 250",
