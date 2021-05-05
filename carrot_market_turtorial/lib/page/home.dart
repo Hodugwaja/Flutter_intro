@@ -1,3 +1,4 @@
+import 'package:carrot_market_turtorial/page/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
@@ -33,7 +34,7 @@ class _HomeState extends State<Home> {
   final oCcy = new NumberFormat('#,###', "ko_kr");
 
   String calcStringToWon(String priceString) {
-    if(priceString == "무료 나눔") return priceString;
+    if (priceString == "무료 나눔") return priceString;
     return "${oCcy.format(int.parse(priceString))}원";
   }
 
@@ -109,7 +110,13 @@ class _HomeState extends State<Home> {
           itemCount: Data.length,
           itemBuilder: (BuildContext _context, int index) {
             return GestureDetector(
-              onTap :(){
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                  return DetailContentView(
+                    data: Data[index],
+                  );
+                }));
                 print(Data[index]['title']);
               },
               child: Container(
