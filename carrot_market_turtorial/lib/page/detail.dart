@@ -19,7 +19,9 @@ class _DetailContentViewState extends State<DetailContentView> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    size = MediaQuery.of(context).size;
+    size = MediaQuery
+        .of(context)
+        .size;
     imgList = [
       {
         "id": "1",
@@ -109,7 +111,7 @@ class _DetailContentViewState extends State<DetailContentView> {
                     width: 8.0,
                     height: 8.0,
                     margin:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: _current == int.parse(map["id"]) - 1
@@ -141,7 +143,9 @@ class _DetailContentViewState extends State<DetailContentView> {
           // )
           CircleAvatar(
             radius: 25,
-            backgroundImage: Image.asset('assets/images/user.png').image,
+            backgroundImage: Image
+                .asset('assets/images/user.png')
+                .image,
           ),
           SizedBox(width: 10),
           Column(
@@ -177,6 +181,7 @@ class _DetailContentViewState extends State<DetailContentView> {
   Widget _contentDetail() {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
@@ -185,27 +190,36 @@ class _DetailContentViewState extends State<DetailContentView> {
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
-          )
+          ),
+          Text(
+            widget.data["createdAt"],
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.grey,
+            ),
+          ),
+          Text(
+            widget.data["content"],
+            style: TextStyle(
+              fontSize: 15,
+              height: 1.5,
+            ),
+          ),
         ],
       ),
     );
   }
 
   Widget _bodyWidget() {
-    return Column(
-      children: [
-        _makeSliderImage(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              _sellerSimpleInfo(),
-              _line(),
-              _contentDetail(),
-            ],
-          ),
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _makeSliderImage(),
+          _sellerSimpleInfo(),
+          _line(),
+          _contentDetail(),
+        ],
+      ),
     );
   }
 
