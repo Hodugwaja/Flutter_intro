@@ -195,7 +195,7 @@ class _DetailContentViewState extends State<DetailContentView> {
             widget.data["createdAt"],
             style: TextStyle(
               fontSize: 12,
-              color: Colors.grey,
+              color: Colors.black,
             ),
           ),
           Text(
