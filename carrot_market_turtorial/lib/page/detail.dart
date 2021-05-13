@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../components/menor_temperature_widget.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DetailContentView extends StatefulWidget {
   Map<String, String> data;
@@ -19,9 +20,7 @@ class _DetailContentViewState extends State<DetailContentView> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    size = MediaQuery
-        .of(context)
-        .size;
+    size = MediaQuery.of(context).size;
     imgList = [
       {
         "id": "1",
@@ -111,7 +110,7 @@ class _DetailContentViewState extends State<DetailContentView> {
                     width: 8.0,
                     height: 8.0,
                     margin:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: _current == int.parse(map["id"]) - 1
@@ -143,11 +142,9 @@ class _DetailContentViewState extends State<DetailContentView> {
           // )
           CircleAvatar(
             radius: 25,
-            backgroundImage: Image
-                .asset('assets/images/user.png')
-                .image,
+            backgroundImage: Image.asset('assets/images/user.png').image,
           ),
-          SizedBox(width: 10),
+          SizedBox(width: 15),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -161,10 +158,11 @@ class _DetailContentViewState extends State<DetailContentView> {
               Text(
                 widget.data["location"],
               ),
+              SizedBox(width: 15),
             ],
           ),
           Expanded(
-            child: ManorTemperature(manorTemp: 36.5),
+            child: ManorTemperature(manorTemp: 50),
           ),
         ],
       ),
@@ -179,10 +177,10 @@ class _DetailContentViewState extends State<DetailContentView> {
   }
 
   Widget _contentDetail() {
-    return Container(
+    return Padding(
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             widget.data["title"],
@@ -198,6 +196,7 @@ class _DetailContentViewState extends State<DetailContentView> {
               color: Colors.black,
             ),
           ),
+          SizedBox(height: 16),
           Text(
             widget.data["content"],
             style: TextStyle(
@@ -210,16 +209,80 @@ class _DetailContentViewState extends State<DetailContentView> {
     );
   }
 
-  Widget _bodyWidget() {
-    return SingleChildScrollView(
-      child: Column(
+  Widget _others() {
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _makeSliderImage(),
-          _sellerSimpleInfo(),
-          _line(),
-          _contentDetail(),
+          Text("판매자님의 판매 상품",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              )),
+          Text("모두보기",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              )),
         ],
       ),
+    );
+  }
+
+  Widget _bodyWidget() {
+    return CustomScrollView(
+      slivers: [
+        SliverList(
+          delegate: SliverChildListDelegate([
+            _makeSliderImage(),
+            _sellerSimpleInfo(),
+            _line(),
+            _contentDetail(),
+            _line(),
+            _others(),
+          ]),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+          ),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+            ),
+            delegate: SliverChildListDelegate(List.generate(10, (index) {
+              return Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        color: Colors.grey,
+                        height: 120,
+                      ),
+                    ),
+                    Text(
+                      "상품명",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text("금액",
+                        style: TextStyle(
+                          fontSize: 14,
+                        )),
+                  ],
+                ),
+              );
+            }).toList()),
+          ),
+        ),
+      ],
     );
   }
 
@@ -228,6 +291,20 @@ class _DetailContentViewState extends State<DetailContentView> {
       width: size.width,
       height: 55,
       color: Colors.red,
+      child: Row(
+        children: [
+          GestureDetector(
+            onTap : (){
+              print("관심상품 이벤트");
+            },
+          ),
+          SvgPicture.asset(
+            'assets/svg/heart_off.svg',
+            width: 20,
+            height: 20,
+          ),
+        ],
+      ),
     );
   }
 
