@@ -10,7 +10,7 @@ class ContentsRepository {
         "type" : "타입",
         "createdAt" : "1일 16시간 전",
         "content" : "설명",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1121'
       },
       {
@@ -21,7 +21,7 @@ class ContentsRepository {
         "content" : "설명",
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1972'
       },
       {
@@ -32,7 +32,7 @@ class ContentsRepository {
         "content" : "설명",
         "title": '제목',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1972'
       },
       {
@@ -43,7 +43,7 @@ class ContentsRepository {
         "image": 'assets/images/youseong-4.jpg',
         "title": '미안하다 이거 보여주려고 어그로 끌었다. 솔직히 저런 거 정말로 멋지지 않나? 가슴이 장웅해진다',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1972'
       },
       {
@@ -54,7 +54,7 @@ class ContentsRepository {
         "image": 'assets/images/youseong-5.jpg',
         "title": '상하이 나들목 단돈 4백만 딸라! 놓치지 마세요',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4백만 딸라',
+        "price": '4515180000',
         'likes': '1972'
       },
       {
@@ -65,7 +65,7 @@ class ContentsRepository {
         "content" : "잘생기고 귀엽고 착하고\n키 작은거 제외하고 다 할 줄 아는\n김준형이 재능기부합니다",
         "title": '카나미 천재',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '무료',
+        "price": '무료나눔',
         'likes': '1972'
       },
       {
@@ -76,7 +76,7 @@ class ContentsRepository {
         "content" : "귀엽고 잘 싸우는\n나공익 40억에 FA 신청합니다",
         "title": '나공익 볼짤',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '40억',
+        "price": '4000000000',
         'likes': '1972'
       },
       {
@@ -87,7 +87,7 @@ class ContentsRepository {
         "content" : "규카츠 저장하려고 산건데\n규카츠 사자마자 다 먹었습니다 ㅜㅜ",
         "title": '규카츠 먹으려고 산건데 규카츠를 사자마자 다 먹어서 팝니다 ㅜㅜ',
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1972'
       },
       {
@@ -98,7 +98,7 @@ class ContentsRepository {
         "createdAt" : "1일 16시간 전",
         "content" : "귀여운 우주원 애교 목소리\n 단돈 4딸라!",
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1972'
       },
       {
@@ -109,7 +109,7 @@ class ContentsRepository {
         "createdAt" : "1일 16시간 전",
         "content" : "맛젤 꾹꾹이",
         "location": "대전광역시 유성구 장동 23-9",
-        "price": '4딸라',
+        "price": '4515',
         'likes': '1972'
       },
     ],

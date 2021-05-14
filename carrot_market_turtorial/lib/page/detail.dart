@@ -290,19 +290,29 @@ class _DetailContentViewState extends State<DetailContentView> {
     return Container(
       width: size.width,
       height: 55,
-      color: Colors.red,
       child: Row(
         children: [
+
           GestureDetector(
-            onTap : (){
+            onTap: () {
               print("관심상품 이벤트");
             },
+            child : SvgPicture.asset(
+              'assets/svg/heart_off.svg',
+              width: 25,
+              height: 25,
+            ),
           ),
-          SvgPicture.asset(
-            'assets/svg/heart_off.svg',
-            width: 20,
-            height: 20,
-          ),
+
+          Container(
+            margin: const EdgeInsets.only(
+              left: 15,
+              right: 10,
+            ),
+            width: 1,
+            height: 40,
+            color: Colors.black.withOpacity(0.3),
+          )
         ],
       ),
     );
